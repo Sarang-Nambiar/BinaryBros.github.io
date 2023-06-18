@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'proxima-nova';
+    src: url("/assets/fonts/proximanova-regular-webfont.eot");
+    src: url("/assets/fonts/proximanova-regular-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/proximanova-regular-webfont.woff") format("woff"),url("/assets/fonts/proximanova-regular-webfont.woff2") format("woff2"),url("/assets/fonts/proximanova-regular-webfont.ttf") format("truetype"),url("/assets/fonts/proximanova-regular-webfont.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    src: url("/assets/fonts/proximanova-regular-webfont.eot");
+    src: url("/assets/fonts/proximanova-regular-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/proximanova-regular-webfont.woff") format("woff"),url("/assets/fonts/proximanova-regular-webfont.woff2") format("woff2"),url("/assets/fonts/proximanova-regular-webfont.ttf") format("truetype"),url("/assets/fonts/proximanova-regular-webfont.svg") format("svg");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    src: url("/assets/fonts/proximanova-light-webfont.eot");
+    src: url("/assets/fonts/proximanova-light-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/proximanova-light-webfont.woff") format("woff"),url("/assets/fonts/proximanova-light-webfont.woff2") format("woff2"),url("/assets/fonts/proximanova-light-webfont.ttf") format("truetype"),url("/assets/fonts/proximanova-light-webfont.svg") format("svg");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    src: url("/assets/fonts/proximanova-semibold-webfont.eot");
+    src: url("/assets/fonts/proximanova-semibold-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/proximanova-semibold-webfont.woff") format("woff"),url("/assets/fonts/proximanova-semibold-webfont.woff2") format("woff2"),url("/assets/fonts/proximanova-semibold-webfont.ttf") format("truetype"),url("/assets/fonts/proximanova-semibold-webfont.svg") format("svg");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    src: url("/assets/fonts/proximanova-bold-webfont.eot");
+    src: url("/assets/fonts/proximanova-bold-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/proximanova-bold-webfont.woff") format("woff"),url("/assets/fonts/proximanova-bold-webfont.woff2") format("woff2"),url("/assets/fonts/proximanova-bold-webfont.ttf") format("truetype"),url("/assets/fonts/proximanova-bold-webfont.svg") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    src: url("/assets/fonts/proximanova-bold-webfont.eot");
+    src: url("/assets/fonts/proximanova-bold-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/proximanova-bold-webfont.woff") format("woff"),url("/assets/fonts/proximanova-bold-webfont.woff2") format("woff2"),url("/assets/fonts/proximanova-bold-webfont.ttf") format("truetype"),url("/assets/fonts/proximanova-bold-webfont.svg") format("svg");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sigvar';
+    src: url("/assets/fonts/sigvar_serial-regular-webfont.eot");
+    src: url("/assets/fonts/sigvar_serial-regular-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/sigvar_serial-regular-webfont.woff2") format("woff2"),url("/assets/fonts/sigvar_serial-regular-webfont.woff") format("woff"),url("/assets/fonts/sigvar_serial-regular-webfont.ttf") format("truetype"),url("/assets/fonts/sigvar_serial-regular-webfont.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sigvar';
+    src: url("/assets/fonts/sigvar_serial-light-webfont.eot");
+    src: url("/assets/fonts/sigvar_serial-light-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/sigvar_serial-light-webfont.woff2") format("woff2"),url("/assets/fonts/sigvar_serial-light-webfont.woff") format("woff"),url("/assets/fonts/sigvar_serial-light-webfont.ttf") format("truetype"),url("/assets/fonts/sigvar_serial-light-webfont.svg") format("svg");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sigvar';
+    src: url("/assets/fonts/sigvar_serial-xbold-webfont.eot");
+    src: url("/assets/fonts/sigvar_serial-xbold-webfont.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/sigvar_serial-xbold-webfont.woff") format("woff"),url("/assets/fonts/sigvar_serial-xbold-webfont.woff2") format("woff2"),url("/assets/fonts/sigvar_serial-xbold-webfont.ttf") format("truetype"),url("/assets/fonts/sigvar_serial-xbold-webfont.svg") format("svg");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sia-ico2';
+    src: url("/assets/fonts/sia-ico2.eot?ola8n5");
+    src: url("/assets/fonts/sia-ico2.eot?ola8n5#iefix") format("embedded-opentype"),url("/assets/fonts/sia-ico2.ttf?ola8n5") format("truetype"),url("/assets/fonts/sia-ico2.woff?ola8n5") format("woff"),url("/assets/fonts/sia-ico2.svg?ola8n5#sia-ico2") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sia';
+    src: url("/assets/fonts/sia.eot");
+    src: url("/assets/fonts/sia.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/sia.woff") format("woff"),url("/assets/fonts/sia.ttf") format("truetype"),url("/assets/fonts/sia.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sia-1';
+    src: url("/assets/fonts/sia-1.eot");
+    src: url("/assets/fonts/sia-1.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/sia-1.woff") format("woff"),url("/assets/fonts/sia-1.ttf") format("truetype"),url("/assets/fonts/sia-1.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sia-2';
+    src: url("/assets/fonts/sia-2.eot");
+    src: url("/assets/fonts/sia-2.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/sia-2.woff") format("woff"),url("/assets/fonts/sia-2.ttf") format("truetype"),url("/assets/fonts/sia-2.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sia-3';
+    src: url("/assets/fonts/sia-3.eot");
+    src: url("/assets/fonts/sia-3.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/sia-3.woff") format("woff"),url("/assets/fonts/sia-3.ttf") format("truetype"),url("/assets/fonts/sia-3.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'sia-amenities';
+    src: url("/assets/fonts/sia-amenities.eot");
+    src: url("/assets/fonts/sia-amenities.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/sia-amenities.woff") format("woff"),url("/assets/fonts/sia-amenities.ttf") format("truetype"),url("/assets/fonts/sia-amenities.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
