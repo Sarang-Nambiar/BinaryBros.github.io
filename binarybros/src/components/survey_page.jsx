@@ -1,13 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const SurveyPage: React.FC = () => {
+const SurveyPage = () => {
   return (
     <>
       <div
         className="banner"
         style={{
-          backgroundImage: `Images/Banner1.jpeg`,
+          backgroundImage: `url("Images/Banner1.jpeg")`,
           backgroundPosition: "top center",
           height: "420px",
           backgroundSize: "cover",
@@ -18,7 +18,7 @@ const SurveyPage: React.FC = () => {
       >
         <center>
           <h4>VIETNAM</h4>
-          <br></br>
+          <br />
           <h2>Hanoi</h2>
         </center>
       </div>
