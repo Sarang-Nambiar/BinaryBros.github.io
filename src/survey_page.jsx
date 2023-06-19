@@ -7,7 +7,7 @@ const SurveyPage = () => {
       <div
         className="banner"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/Images/Banner1.jpeg)`,
+          backgroundImage: `./Images/Banner1.jpeg`,
           backgroundPosition: "top center",
           height: "420px",
           backgroundSize: "cover",
