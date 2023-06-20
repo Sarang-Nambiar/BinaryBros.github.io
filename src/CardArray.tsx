@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "./Card";
 
+
 const CardArray = () => {
     const [cards, setCards] = useState(["Plan 1"]);
 
@@ -21,7 +22,7 @@ const CardArray = () => {
             </div>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
                 {cards.map((card, index) => (
-                    <Card key={index} title={card} />
+                    <Card key={index} title={card} content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula vel ligula lobortis malesuada. Nam id quam at tortor placerat dapibus."} />
                 ))}
             </div>
         </>
