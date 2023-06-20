@@ -1,0 +1,85 @@
+
+
+.banner {
+    position: relative;
+    margin-top: -1px;
+    height: 420px;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .masthead-banner__content-country {
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    }
+  
+  .masthead-banner__content {
+    text-align: center;
+    width: 350px;
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 1;
+    color: white !important;
+  }
+  
+  .masthead-banner__content-capital {
+    font-family: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 57px;
+    line-height: 76px;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  .masthead-banner__content-dash {
+    width: 52px;
+    height: 3px;
+    background-color: #ff9f00;
+    display: table;
+    margin: auto;
+    margin-top: 10px;
+  }
+  
+  .masthead-banner__content-favourites {
+    font-size: 12px;
+    line-height: 16px;
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    padding-left: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    }
+  
+
+  
+  .masthead-banner__content-favourites span:last-child {
+    display: none;
+  }
+
+body{
+    background-color:#F7F7F7;
+}
+  
+
+
+.container {
+    background-color: #f7f7f7;
+  }
+  
