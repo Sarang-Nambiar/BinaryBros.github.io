@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import banner_img from "./Images/Banner1.jpeg";
 import header_img from "./Images/header.jpg";
 import footer_img from "./Images/footer.jpg";
+import Card from "./Card.tsx";
+import CardArray from "./CardArray.tsx";
 
 const SurveyPage = () => {
   return (
@@ -74,7 +76,8 @@ const SurveyPage = () => {
         <br />
       </div>
       <div className="container">
-        {/* adding cards here for the survey results */}
+        <CardArray />
+        <br />
       </div>
       <div className="footer">
         <img
