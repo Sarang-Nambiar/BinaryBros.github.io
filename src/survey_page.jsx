@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import banner_img from "./Images/Banner1.jpeg";
 import header_img from "./Images/header.jpg";
 import footer_img from "./Images/footer.jpg";
-import Card from "./Card.tsx";
 import CardArray from "./CardArray.tsx";
 
 const SurveyPage = () => {
@@ -63,7 +62,7 @@ const SurveyPage = () => {
         </div>
       </div>
       <div className="container">
-        <div className="card" style={{ padding: "1rem" }}>
+        <div className="card" style={{ padding: "1rem", marginTop: "1rem" }}>
           <div className="card-body">
             <h5 className="card-title" style={{ textAlign: "center" }}>
               Trip Planner

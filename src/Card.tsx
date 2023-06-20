@@ -6,7 +6,10 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title }) => {
   return (
-    <div className="card" style={{ padding: "1rem" }}>
+    <div className="card" style={{ 
+        padding: "1rem", 
+        margin: "0.5rem",
+        }}>
       <div className="card-body">
         <h5 className="card-title" style={{ textAlign: "center" }}>
           {title}
