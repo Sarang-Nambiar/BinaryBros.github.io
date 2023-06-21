@@ -65,6 +65,7 @@
     font-weight: 600;
     letter-spacing: 1px;
     cursor: pointer;
+    left: -15px;
     }
   
 
@@ -79,7 +80,3 @@ body{
   
 
 
-.container {
-    background-color: #f7f7f7;
-  }
-  
