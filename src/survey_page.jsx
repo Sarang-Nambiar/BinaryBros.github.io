@@ -8,20 +8,6 @@ import CardArray from "./CardArray.tsx";
 const SurveyPage = () => {
   return (
     <>
-      <div className="header">
-        <img
-          src={header_img}
-          alt="header"
-          style={{
-            width: "100%",
-            objectFit: "cover",
-            position: "top",
-            top: "0",
-            left: "0",
-            zIndex: "-1", // Update the zIndex to -1 for the header image
-          }}
-        />
-      </div>
       <div className="banner" style={{ position: "relative" }}>
         <img
           src={banner_img}
