@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import Card from "./Card";
 
 
@@ -16,9 +17,9 @@ const CardArray = () => {
                 <h4>Suggested Trip Plans</h4>
             </div>
             <div style={{ marginTop: "1rem" }}>
-                <button className="btn" onClick={handleAddCard}>
+                <Button variant="primary" onClick={handleAddCard}>
                     + Generate New Plan
-                </button>
+                </Button>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
                 {cards.map((card, index) => (

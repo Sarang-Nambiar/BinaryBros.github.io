@@ -26,13 +26,13 @@ const Card: React.FC<CardProps> = ({ title, content }) => {
 
   return (
     <>
-      <div className="card" style={{ width: "18rem", margin: "1rem" }}>
+      <div className="card" style={{ width: "18rem", margin: "1rem", borderRadius: "0.2rem", border: "none", boxShadow: "0 0.1rem 0.5rem rgba(0,0,0,0.1)" }}>
         <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <div className="card-text" style={{ maxHeight: "6rem", overflow: "hidden" }}>
+          <h6 className="card-title">{title}</h6>
+          <div className="card-text" style={{ maxHeight: "6rem", overflow: "hidden", marginBottom: "0.5rem" }}>
             {truncateContent(content, 100)}
           </div>
-          <Button variant="primary" onClick={handleReadMore}>
+          <Button variant="outline-primary" size="sm" onClick={handleReadMore}>
             Read More
           </Button>
         </div>
@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = ({ title, content }) => {
         </Modal.Header>
         <Modal.Body>{content}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="outline-secondary" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
