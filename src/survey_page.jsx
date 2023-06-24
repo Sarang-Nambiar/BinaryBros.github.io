@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import bannerImage from "./Images/Banner1.jpeg";
 import "./SurveyPage.css";
 import star from "./Images/star.png";
-import header from "./Images/header.jpg";
 import footer from "./Images/footer.jpg";
 
 const SurveyPage = () => {
