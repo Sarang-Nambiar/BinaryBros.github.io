@@ -229,20 +229,22 @@ const SurveyPage = () => {
                     Tourist
                   </label>
                 </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="visitPurpose"
-                    id="purposeTourist"
-                    value="tourist"
-                  />
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Other"
-                  />
+                
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="visitPurpose"
+                      id="purposeOther"
+                      value="Other"
+                    />
+                    
                 </div>
+                <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Other"
+                    />
               </div>
             </div>
             <div className="form-group">
@@ -324,6 +326,21 @@ const SurveyPage = () => {
                     className="form-check-input"
                     type="radio"
                     name="openExplore"
+                    id="openLikely"
+                    value="Likely"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="openLikely"
+                  >
+                    Likely
+                  </label>
+                </div>
+                <div className="form-check form-check-inline">
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="openExplore"
                     id="openNeutral"
                     value="neutral"
                   />
@@ -349,12 +366,20 @@ const SurveyPage = () => {
                     Unlikely
                   </label>
                 </div>
-                <div style={{ paddingTop: "5px" }}>
+                <div className="form-check form-check-inline">
                   <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Other"
+                    className="form-check-input"
+                    type="radio"
+                    name="openExplore"
+                    id="openVeryUnlikely"
+                    value="unlikely"
                   />
+                  <label
+                    className="form-check-label"
+                    htmlFor="openVeryUnlikely"
+                  >
+                    Very Unlikely
+                  </label>
                 </div>
               </div>
             </div>
@@ -387,6 +412,21 @@ const SurveyPage = () => {
                   <input
                     className="form-check-input"
                     type="radio"
+                    name="openExplore"
+                    id="openLikely"
+                    value="Likely"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="openLikely"
+                  >
+                    Likely
+                  </label>
+                </div>
+                <div className="form-check form-check-inline">
+                  <input
+                    className="form-check-input"
+                    type="radio"
                     name="participateEvents"
                     id="participateNeutral"
                     value="neutral"
@@ -413,12 +453,20 @@ const SurveyPage = () => {
                     Unlikely
                   </label>
                 </div>
-                <div style={{ paddingTop: "5px" }}>
+                <div className="form-check form-check-inline">
                   <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Other"
+                    className="form-check-input"
+                    type="radio"
+                    name="openExplore"
+                    id="openVeryUnlikely"
+                    value="Veryunlikely"
                   />
+                  <label
+                    className="form-check-label"
+                    htmlFor="openUnlikely"
+                  >
+                    Very Unlikely
+                  </label>
                 </div>
               </div>
             </div>
