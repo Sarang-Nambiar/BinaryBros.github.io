@@ -28,8 +28,6 @@ submitbtn.addEventListener('click', () => {
 
     if(q2inputYes.checked) {
         inputs.q2input = q2inputYes.value;
-    }else if(q2inputNo.checked) {
-        inputs.q2input = q2inputNo.value;
     }
 
     const q3input = document.getElementById('q3input');
@@ -119,8 +117,29 @@ submitbtn.addEventListener('click', () => {
 })
 
 // Creating template prompt
-// prompt engineering
-const prompt = 'Create a trip to Hanoi '
+// Hardcoding to Hanoi for simplicity.
+const duration = inputs.q1input !== '' ? 'for '+ inputs.q1input: '';
+
+const recommendations = inputs.q2input !== '' ? ' I would like to book a hotel ' : '';
+
+const budget = inputs.q3input !== '' ? ' with a budget of '+inputs.q3input : '';
+
+const travelling_individuals = inputs.q4input != null ? 'The trip will be for ' + '${inputs.q4input.Adult} adult with ${inputs.q4input.Infant} infants or ${inputs.q4input.Child} children' : '';
+
+const purpose = inputs.q5input != null ? ' with the intent of ' + inputs.q5input : '';
+
+const medium = inputs.q6input != null ? ' in a ' + inputs.q6input : '';
+
+const beaten_off_path = inputs.q7input != null ? 'I am interested in exploring ' + inputs.q7input : '';
+
+const festivals = inputs.q8input != null ? ' and ' + inputs.q8input + ' attending local festivals' : '';
+
+const restrictions = inputs.q9input != null ? ' and restrictions in ' + inputs.q9input : '';
+
+const requests = inputs.q10input != null ? ' and ' + inputs.q10input : ''; 
+
+
+const prompt = 'For a leisure trip to Hanoi, Vietnam, ${recommendations} ${duration} days. ${travelling_individuals} ${medium} {$purpose}. ${beaten_off_path} ${festivals}. Additionally, please consider dietary restrictions if any: {$restrictions}. Some additional requests: {$requests}'
 
 // Setting up the OpenAI API
 
