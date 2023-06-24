@@ -27,10 +27,9 @@ function SurveyPage() {
       return;
     }
     counter = counter + 1;
-    if (counter = 1) {
+    if ((counter = 1)) {
       setShowCardArray(false);
-    }
-    else if (counter > 1) {
+    } else if (counter > 1) {
       setShowCardArray(false);
       setResetCards(true);
     }
@@ -197,7 +196,7 @@ function SurveyPage() {
                   <div style={{ marginRight: "10px" }}>
                     <label>Adults:</label>
                     <input
-                      type="text"
+                      type="number"
                       className="form-control"
                       placeholder="0"
                     />
@@ -205,7 +204,7 @@ function SurveyPage() {
                   <div style={{ marginRight: "10px" }}>
                     <label>Children:</label>
                     <input
-                      type="text"
+                      type="number"
                       className="form-control"
                       placeholder="0"
                     />
@@ -213,7 +212,7 @@ function SurveyPage() {
                   <div>
                     <label>Infants:</label>
                     <input
-                      type="text"
+                      type="number"
                       className="form-control"
                       placeholder="0"
                     />
@@ -447,18 +446,19 @@ function SurveyPage() {
               zIndex: 1,
               display: showCardArray ? "none" : "block",
               marginBottom: "50px",
-            } }
+            }}
           >
             <br />
-            <CardArray disableSection={showCardArray} reset={resetCards}/>
+            <CardArray disableSection={showCardArray} reset={resetCards} />
           </div>
         </div>
 
-        <div className="Foot" style={
-          {
+        <div
+          className="Foot"
+          style={{
             marginTop: showCardArray ? "90rem" : "95rem",
-          }
-        }></div>
+          }}
+        ></div>
       </div>
     </>
   );
