@@ -81,7 +81,7 @@ function SurveyPage() {
             >
               Plan your Trip!
             </h2>
-
+            <form>
             <YourComponent2/>
             
             <div className="form-group">
@@ -394,7 +394,8 @@ function SurveyPage() {
                   placeholder="Enter your special requests or requirements"
                 ></textarea>
               </div>
-            </div>
+              </div>
+              
             <div style={{ textAlign: "center", paddingTop: "30px" }}>
               <button
                 type="submit"
@@ -408,7 +409,8 @@ function SurveyPage() {
                 Submit
           </button>
           
-            </div>
+              </div>
+              </form>
            </div>
           
         </div>
