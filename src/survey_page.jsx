@@ -453,11 +453,6 @@ function SurveyPage() {
             <CardArray disableSection={showCardArray} reset={resetCards}/>
           </div>
         </div>
-        <div
-          style={{
-            minHeight: "50px",
-          }}
-        ></div>
 
         <div className="Foot" style={
           {
