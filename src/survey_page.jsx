@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import bannerImage from "./Images/Banner1.jpeg";
 import "./SurveyPage.css";
@@ -6,10 +6,19 @@ import star from "./Images/star.png";
 import CardArray from "./CardArray.tsx";
 
 import { YourComponent } from "./YourComponent.jsx";
-import { YourComponent2 } from "./YourComponent2.jsx";
+
 import { Card } from "react-bootstrap";
 
 function SurveyPage() {
+  const [tripDuration, setTripDuration] = useState("");
+  const [firstQuestionAnswered, setFirstQuestionAnswered] = useState(false);
+
+  const handleTripDurationChange = (event) => {
+    const value = event.target.value;
+    setTripDuration(value);
+    setFirstQuestionAnswered(value.trim() !== "");
+  };
+
   const response_page = () => {
     window.location.href = "/response_page";
   };
@@ -17,14 +26,14 @@ function SurveyPage() {
   const [showCardArray, setShowCardArray] = React.useState(true);
   const handleSubmit = (event) => {
     event.preventDefault();
-    // get inputs from form, send to API
-    // set counter s.t. if counter = 0 then no CardArray component displayed
-    // if counter >= 1 then CardArray component displayed along with generate button
+    if (!firstQuestionAnswered) {
+      alert("Please answer the first question.");
+      return;
+    }
     counter = counter + 1;
     if (counter >= 1) {
       setShowCardArray(false);
     }
-
   };
 
   return (
@@ -34,9 +43,7 @@ function SurveyPage() {
           style={{
             minHeight: "80px",
           }}
-        >
-
-        </div>
+        ></div>
 
         <div
           className="banner"
@@ -101,7 +108,22 @@ function SurveyPage() {
               Plan your Trip!
             </h2>
             <form onSubmit={handleSubmit}>
-              <YourComponent2 />
+              <div className="form-group">
+                <label style={{ color: "#00266B" }}>
+                  1. How many days is your trip?{" "}
+                  <span style={{ color: "red" }}>*</span>
+                </label>
+                <div style={{ paddingTop: "5px" }}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="No. of Days"
+                    value={tripDuration}
+                    onChange={handleTripDurationChange}
+                    required
+                  />
+                </div>
+              </div>
 
               <div className="form-group">
                 <label
@@ -201,11 +223,6 @@ function SurveyPage() {
 
               <YourComponent />
 
-
-
-
-
-
               <div className="form-group">
                 <label
                   style={{
@@ -213,7 +230,8 @@ function SurveyPage() {
                     paddingTop: "25px",
                   }}
                 >
-                  7. Are you open to exploring off-the-beaten-path destinations and experiences suggested by the travel planning platform?
+                  7. Are you open to exploring off-the-beaten-path destinations
+                  and experiences suggested by the travel planning platform?
                 </label>
                 <div>
                   <div className="form-check form-check-inline">
@@ -224,10 +242,7 @@ function SurveyPage() {
                       id="openLikely"
                       value="likely"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="openLikely"
-                    >
+                    <label className="form-check-label" htmlFor="openLikely">
                       Very Likely
                     </label>
                   </div>
@@ -239,10 +254,7 @@ function SurveyPage() {
                       id="openLikely"
                       value="Likely"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="openLikely"
-                    >
+                    <label className="form-check-label" htmlFor="openLikely">
                       Likely
                     </label>
                   </div>
@@ -254,10 +266,7 @@ function SurveyPage() {
                       id="openNeutral"
                       value="neutral"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="openNeutral"
-                    >
+                    <label className="form-check-label" htmlFor="openNeutral">
                       Neutral
                     </label>
                   </div>
@@ -269,10 +278,7 @@ function SurveyPage() {
                       id="openUnlikely"
                       value="unlikely"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="openUnlikely"
-                    >
+                    <label className="form-check-label" htmlFor="openUnlikely">
                       Unlikely
                     </label>
                   </div>
@@ -300,7 +306,8 @@ function SurveyPage() {
                     paddingTop: "25px",
                   }}
                 >
-                  8. How likely are you to participate in local events or festivals when you visit a new destination?
+                  8. How likely are you to participate in local events or
+                  festivals when you visit a new destination?
                 </label>
                 <div>
                   <div className="form-check form-check-inline">
@@ -326,10 +333,7 @@ function SurveyPage() {
                       id="openLikely"
                       value="Likely"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="openLikely"
-                    >
+                    <label className="form-check-label" htmlFor="openLikely">
                       Likely
                     </label>
                   </div>
@@ -371,10 +375,7 @@ function SurveyPage() {
                       id="openVeryUnlikely"
                       value="Veryunlikely"
                     />
-                    <label
-                      className="form-check-label"
-                      htmlFor="openUnlikely"
-                    >
+                    <label className="form-check-label" htmlFor="openUnlikely">
                       Very Unlikely
                     </label>
                   </div>
@@ -387,7 +388,8 @@ function SurveyPage() {
                     paddingTop: "25px",
                   }}
                 >
-                  9. Do you have any specific dietary restrictions or preferences?
+                  9. Do you have any specific dietary restrictions or
+                  preferences?
                 </label>
                 <div style={{ paddingTop: "5px" }}>
                   <input
@@ -424,37 +426,26 @@ function SurveyPage() {
                     border: "none",
                     width: "150px",
                   }}
+                  disabled={!firstQuestionAnswered}
                 >
                   Submit
                 </button>
-
               </div>
             </form>
             <CardArray disableSection={showCardArray} />
           </div>
-
-          
-
         </div>
-
-
 
         <div
           style={{
             minHeight: "50px",
           }}
-        >
+        ></div>
 
-        </div>
-        
-        <div className="Foot">
-
-        </div>
+        <div className="Foot"></div>
       </div>
-
-
     </>
   );
-};
+}
 
 export default SurveyPage;
