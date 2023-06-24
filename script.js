@@ -9,9 +9,10 @@ function isNumeric(input) {
     return regex.test(input);
 }
 // Accepting user input 
+const inputs = {};
 const submitbtn = document.getElementById('submitbtn');
 submitbtn.addEventListener('click', () => {
-    const inputs = {};
+
     
     const q1input = document.getElementById('q1input');
 
