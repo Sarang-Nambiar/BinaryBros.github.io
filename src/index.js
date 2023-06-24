@@ -5,7 +5,6 @@ import App from './App.js';
 
 ReactDOM.render(
   <React.StrictMode>
-        <App/>
     <SurveyPage />
   </React.StrictMode>,
   document.getElementById('root')
