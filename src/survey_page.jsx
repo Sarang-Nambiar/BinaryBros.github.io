@@ -137,6 +137,7 @@ function SurveyPage() {
               </label>
               <div style={{ paddingTop: "5px" }}>
                 <input
+                  id="q3input"
                   type="text"
                   className="form-control"
                   placeholder="SGD"

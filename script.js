@@ -41,7 +41,9 @@ submitbtn.addEventListener('click', () => {
 
 })
 
-
+// Creating template prompt
+// prompt engineering
+const prompt = 'Create a trip to Hanoi '
 
 // Setting up the OpenAI API
 
@@ -68,6 +70,6 @@ const openai = new OpenAIApi(new Configuration({
 const res = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: input }]
-
+})
 
 
