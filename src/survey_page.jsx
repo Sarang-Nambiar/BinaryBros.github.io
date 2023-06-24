@@ -157,6 +157,8 @@ function SurveyPage() {
                 <div style={{ marginRight: "10px" }}>
                   <label>Adults:</label>
                   <input
+                    name="NoAdult"
+                    id="NoAdult"
                     type="text"
                     className="form-control"
                     placeholder="0"
@@ -165,6 +167,8 @@ function SurveyPage() {
                 <div style={{ marginRight: "10px" }}>
                   <label>Children:</label>
                   <input
+                    name="NoChild"
+                    id="NoChild"
                     type="text"
                     className="form-control"
                     placeholder="0"
@@ -173,6 +177,8 @@ function SurveyPage() {
                 <div>
                   <label>Infants:</label>
                   <input
+                    name="NoInfants"
+                    id="NoInfants"
                     type="text"
                     className="form-control"
                     placeholder="0"

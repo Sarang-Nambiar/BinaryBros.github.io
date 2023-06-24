@@ -39,6 +39,83 @@ submitbtn.addEventListener('click', () => {
         // TODO : Add error message
     }
 
+    
+    const q4input1 = document.getElementById('NoAdult');
+
+    if (isNumeric(q4input1.textContent)){
+        // accept the user input
+    }else if(q4input1.textContent !== "") {
+        q4input1.textContent = 0;
+    }else if(!isNumeric(q4input1.textContent)){
+        // TODO : Add error message
+    }else{
+        // TODO : Add error message
+    }
+
+    const NoChild = document.getElementById('NoChild');
+
+    if (isNumeric(NoChild.textContent)){
+        // accept the user input
+    }else if(NoChild.textContent !== "") {
+        NoChild.textContent = 0;
+    } else if(!isNumeric(NoChild.textContent)){
+        // TODO : Add error message
+    }else{
+        // TODO : Add error message
+    }
+
+    const NoInfants = document.getElementById('NoInfants');
+
+    if (isNumeric(NoInfants.textContent)){
+        // accept the user input
+    }else if(NoInfants.textContent !== "") {
+        NoInfants.textContent = 0;
+    }
+    else if(!isNumeric(NoInfants.textContent)){
+        // TODO : Add error message
+    }else{
+        // TODO : Add error message
+    }
+
+    const q4input = {}; // Initialize an empty object
+
+    q4input.Adult = q4input1;
+    q4input.Child = NoChild;
+    q4input.Infant = NoInfants;
+
+    inputs.q4input= q4input.textContent;
+
+
+    const q5inputYes = document.getElementById('purposeBusiness');
+    const q5inputNo = document.getElementById('purposeTourist');
+    const otherPurposeInput = document.getElementById('otherPurposeInput');
+
+    let q5input;
+
+    if (q5inputYes.checked) {
+    q5input = q5inputYes.value;
+    } else if (q5inputNo.checked) {
+    q5input = q5inputNo.value;
+    } else {
+    q5input = otherPurposeInput.value;
+}
+    inputs.q5input = q5input.textContent;
+
+    const q6inputYes = document.getElementById('transportPublic');
+    const q6inputNo = document.getElementById('transportTaxis');
+    const otherPurposeInput2 = document.getElementById('otherPurposeInput2');
+
+    let q6input;
+
+    if (q6inputYes.checked) {
+    q6input = q6inputYes.value;
+    } else if (q6inputNo.checked) {
+    q6input = q6inputNo.value;
+    } else {
+    q6input = otherPurposeInput2.value;
+}
+    inputs.q6input = q6input.textContent;
+
 })
 
 // Creating template prompt
