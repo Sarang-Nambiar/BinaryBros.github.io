@@ -178,28 +178,39 @@ submitbtn.addEventListener('click', () => {
 
 // Creating template prompt
 // Hardcoding to Hanoi for simplicity.
-const duration = inputs.q1input !== '' ? 'for '+ inputs.q1input: '';
+const duration = inputs.q1input !== inputs.q1input;
 
-const recommendations = inputs.q2input !== '' ? ' I would like to book a hotel ' : '';
+const recommendations = inputs.q2input !== '' ? inputs.q2input : 'None';
 
-const budget = inputs.q3input !== '' ? ' with a budget of '+inputs.q3input : '';
+const budget = inputs.q3input !== '' ? inputs.q3input : 'None';
 
-const travelling_individuals = inputs.q4input != null ? 'The trip will be for ' + '${inputs.q4input.Adult} adult with ${inputs.q4input.Infant} infants or ${inputs.q4input.Child} children' : '';
+const travelling_individuals = inputs.q4input != null ? inputs.q4input : {Adult: "None", Child: "None", Infant: "None"};
 
-const purpose = inputs.q5input != null ? ' with the intent of ' + inputs.q5input : '';
+const purpose = inputs.q5input != null ? inputs.q5input : 'None';
 
-const medium = inputs.q6input != null ? ' in a ' + inputs.q6input : '';
+const medium = inputs.q6input != null ? inputs.q6input : 'None';
 
-const beaten_off_path = inputs.q7input != null ? 'I am interested in exploring ' + inputs.q7input : '';
+const beaten_off_path = inputs.q7input != null ? inputs.q7input : 'None';
 
-const festivals = inputs.q8input != null ? ' and ' + inputs.q8input + ' attending local festivals' : '';
+const festivals = inputs.q8input != null ? inputs.q8input : 'None';
 
-const restrictions = inputs.q9input != null ? ' and restrictions in ' + inputs.q9input : '';
+const restrictions = inputs.q9input != null ? inputs.q9input : 'None';
 
-const requests = inputs.q10input != null ? ' and ' + inputs.q10input : ''; 
+const requests = inputs.q10input != null ? inputs.q10input : 'None'; 
 
 
-const prompt = 'For a leisure trip to Hanoi, Vietnam, ${recommendations} ${duration} days. ${travelling_individuals} ${medium} {$purpose}. ${beaten_off_path} ${festivals}. Additionally, please consider dietary restrictions if any: {$restrictions}. Some additional requests: {$requests}'
+const prompt = 'I need you to make 3 itineraries for the location : Hanoi'+
+'\nMake the itinerary by taking the following into consideration.'
++'\n1. The trip is for ${duration} days.'
++'\n2. Provide Hotel recommendations: ${recommendations}'
++'\n3. Estimated budget for the whole trip is: ${budget}4. Number of individuals on the trip: ${travelling_individuals.Adult} Adults, ${travelling_individuals.Child} children and ${travelling_individuals.Infant} infants'
++'\n5. Purpose of the trip: ${purpose}'
++'\n6. Preferred Medium of transport: ${medium}'
++'\n7. Do you want to go off the beaten path: ${beaten_off_path}'
++'\n8. Do you want to attend any local events or festivals: ${festivals}'
++'\n9. Any dietary or other restrictions or any preferences: ${restrictions}'
++'\n10. Any other requests: ${requests}'
++'\n Give me the name of the itineraries and make sure each itinerary is the form day 1, day 2...'
 
 // Setting up the OpenAI API
 
