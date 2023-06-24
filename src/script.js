@@ -124,8 +124,8 @@ submitbtn.addEventListener('click', () => {
     let q7input;
 
     if (q7inputvlikely.checked) {
-    q7input = q7inputYes.value;
-    } else if (q7inputlikely.checked) {
+    q7input = q7inputvlikely.value;
+    } else if (q7inputvlikely.checked) {
     q7input = q7inputlikely.value;
     } else if (q7inputneutral.checked) {
     q7input = q7inputneutral.value;
@@ -147,7 +147,7 @@ submitbtn.addEventListener('click', () => {
     let q8input;
 
     if (q8inputvlikely.checked) {
-    q8input = q8inputYes.value;
+    q8input = q8inputvlikely.value;
     } else if (q8inputlikely.checked) {
     q8input = q8inputlikely.value;
     } else if (q8inputneutral.checked) {
@@ -212,7 +212,7 @@ const prompt = 'I need you to make 3 itineraries for the location : Hanoi'+
 +'\n9. Any dietary or other restrictions or any preferences: ${restrictions}'
 +'\n10. Any other requests: ${requests}'
 +'\n Give me the name of the itineraries and make sure each itinerary is the form day 1, day 2...'
-
++'Do not add any messages for line before or after the itinerary. Only give me the itinerary starting for Itinerary name:'
 // Setting up the OpenAI API
 
 config();
