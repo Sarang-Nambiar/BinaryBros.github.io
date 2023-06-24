@@ -395,6 +395,7 @@ function SurveyPage() {
                   <input
                     type="text"
                     className="form-control"
+                    id="q9input"
                     placeholder="Enter your dietary restrictions or preferences"
                   />
                 </div>
@@ -411,6 +412,7 @@ function SurveyPage() {
                 <div style={{ paddingTop: "5px" }}>
                   <textarea
                     className="form-control"
+                    id="q10input"
                     rows="4"
                     placeholder="Enter your special requests or requirements"
                   ></textarea>

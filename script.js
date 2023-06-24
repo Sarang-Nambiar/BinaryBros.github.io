@@ -114,6 +114,66 @@ submitbtn.addEventListener('click', () => {
 }
     inputs.q6input = q6input.textContent;
 
+    const q7inputvlikely = document.getElementById('openVeryLikely');
+    const q7inputlikely = document.getElementById('openLikely');
+    const q7inputneutral = document.getElementById('openNeutral');
+    const q7inputunlikely = document.getElementById('openUnlikely');
+    const q7inputvunlikely = document.getElementById('openVeryUnlikely');
+
+    let q7input;
+
+    if (q7inputvlikely.checked) {
+    q7input = q7inputYes.value;
+    } else if (q7inputlikely.checked) {
+    q7input = q7inputlikely.value;
+    } else if (q7inputneutral.checked) {
+    q7input = q7inputneutral.value;
+    }else if (q7inputunlikely.checked) {
+    q7input = q7inputunlikely.value;
+    }else {
+    q7input = q7inputvunlikely.value;
+    }
+
+    inputs.q7input = q7input.textContent;
+
+
+    const q8inputvlikely = document.getElementById('participateVeryLikely');
+    const q8inputlikely = document.getElementById('participateLikely');
+    const q8inputneutral = document.getElementById('participateNeutral');
+    const q8inputunlikely = document.getElementById('participateUnlikely');
+    const q8inputvunlikely = document.getElementById('participateVeryUnlikely');
+
+    let q8input;
+
+    if (q8inputvlikely.checked) {
+    q8input = q8inputYes.value;
+    } else if (q8inputlikely.checked) {
+    q8input = q8inputlikely.value;
+    } else if (q8inputneutral.checked) {
+    q8input = q8inputneutral.value;
+    }else if (q8inputunlikely.checked) {
+    q8input = q8inputunlikely.value;
+    }else {
+    q8input = q8inputvunlikely.value;
+    }
+
+    inputs.q8input = q8input.textContent;
+
+
+    const q9input = document.getElementById('q9input');
+    if(q9input.textContent !== "") {
+        inputs.q9input = q9input.textContent;
+    }else if(!isNumeric(q9input.textContent)) {
+        // TODO : Add error message
+    }
+
+    const q10input = document.getElementById('q10input');
+    if(q10input.textContent !== "") {
+        inputs.q10input = q10input.textContent;
+    }else if(!isNumeric(q10input.textContent)) {
+        // TODO : Add error message
+    }
+
 })
 
 // Creating template prompt
