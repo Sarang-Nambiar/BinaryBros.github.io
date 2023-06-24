@@ -7,8 +7,6 @@ import CardArray from "./CardArray.tsx";
 
 import { YourComponent } from "./YourComponent.jsx";
 
-import { Card } from "react-bootstrap";
-
 function SurveyPage() {
   const [tripDuration, setTripDuration] = useState("");
   const [firstQuestionAnswered, setFirstQuestionAnswered] = useState(false);
@@ -19,9 +17,6 @@ function SurveyPage() {
     setFirstQuestionAnswered(value.trim() !== "");
   };
 
-  const response_page = () => {
-    window.location.href = "/response_page";
-  };
   var counter = 0;
   const [showCardArray, setShowCardArray] = React.useState(true);
   const handleSubmit = (event) => {
@@ -434,10 +429,23 @@ function SurveyPage() {
                 </button>
               </div>
             </form>
+          </div>
+          <div
+            className="white-box-2"
+            style={{
+              position: "absolute",
+              top: "calc(3cm + 1cm + 85rem)", // Adjust the top value as per your requirement
+              left: "12.5%",
+              width: "75%",
+              backgroundColor: "#ffffff",
+              padding: "20px",
+              zIndex: 1,
+            }}
+          >
+            <br />
             <CardArray disableSection={showCardArray} />
           </div>
         </div>
-
         <div
           style={{
             minHeight: "50px",

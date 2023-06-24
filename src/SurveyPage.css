@@ -85,6 +85,7 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  z-index: 1;
   height: 1100px;
   margin-top: 1100px;
 }
