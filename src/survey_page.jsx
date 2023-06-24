@@ -5,6 +5,7 @@ import "./SurveyPage.css";
 import star from "./Images/star.png";
 import header from "./Images/header.jpg";
 import footer from "./Images/footer.jpg";
+import { YourComponent } from "./YourComponent.jsx";
 
 const SurveyPage = () => {
   return (
@@ -189,113 +190,14 @@ const SurveyPage = () => {
                 </div>
               </div>
             </div>
-            <div className="form-group">
-              <label
-                style={{
-                  color: "#00266B",
-                  paddingTop: "25px",
-                }}
-              >
-                5. What is the purpose of your visit?
-              </label>
-              <div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="visitPurpose"
-                    id="purposeBusiness"
-                    value="business"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="purposeBusiness"
-                  >
-                    Business
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="visitPurpose"
-                    id="purposeTourist"
-                    value="tourist"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="purposeTourist"
-                  >
-                    Tourist
-                  </label>
-                </div>
-                
-                  <div className="form-check form-check-inline">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="visitPurpose"
-                      id="purposeOther"
-                      value="Other"
-                    />
-                    
-                </div>
-                <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Other"
-                    />
-              </div>
+            
+            <div>
+            <YourComponent />
             </div>
-            <div className="form-group">
-              <label
-                style={{
-                  color: "#00266B",
-                  paddingTop: "25px",
-                }}
-              >
-                6. What is your preferred transportation medium?
-              </label>
-              <div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="transportMedium"
-                    id="transportPublic"
-                    value="public"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="transportPublic"
-                  >
-                    Public Transport
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="transportMedium"
-                    id="transportTaxis"
-                    value="taxis"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="transportTaxis"
-                  >
-                    Taxis
-                  </label>
-                </div>
-                <div style={{ paddingTop: "5px" }}>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Other"
-                  />
-                </div>
-              </div>
-            </div>
+
+
+
+
             <div className="form-group">
               <label
                 style={{
