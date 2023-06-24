@@ -9,7 +9,12 @@ const SurveyPage = () => {
   return (
     <>
       <div className="Container">
-        
+        <div
+          style={{
+            minHeight: "80px",
+          }}
+        ></div>
+
         <div
           className="banner"
           style={{
@@ -101,7 +106,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="hotelRecommendation"
                     id="hotelRecommendationYes"
                     value="yes"
                   />
@@ -115,7 +121,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="hotelRecommendation"
                     id="hotelRecommendationNo"
                     value="no"
                   />
@@ -194,7 +201,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="visitPurpose"
                     id="purposeBusiness"
                     value="business"
                   />
@@ -208,7 +216,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="visitPurpose"
                     id="purposeTourist"
                     value="tourist"
                   />
@@ -219,7 +228,14 @@ const SurveyPage = () => {
                     Tourist
                   </label>
                 </div>
-                <div style={{ paddingTop: "5px" }}>
+                <div className="form-check form-check-inline">
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="visitPurpose"
+                    id="purposeTourist"
+                    value="tourist"
+                  />
                   <input
                     type="text"
                     className="form-control"
@@ -241,7 +257,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="transportMedium"
                     id="transportPublic"
                     value="public"
                   />
@@ -255,7 +272,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="transportMedium"
                     id="transportTaxis"
                     value="taxis"
                   />
@@ -288,7 +306,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="openExplore"
                     id="openLikely"
                     value="likely"
                   />
@@ -302,7 +321,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="openExplore"
                     id="openNeutral"
                     value="neutral"
                   />
@@ -316,7 +336,8 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
+                    type="radio"
+                    name="openExplore"
                     id="openUnlikely"
                     value="unlikely"
                   />
@@ -349,13 +370,14 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
-                    id="eventLikely"
+                    type="radio"
+                    name="participateEvents"
+                    id="participateLikely"
                     value="likely"
                   />
                   <label
                     className="form-check-label"
-                    htmlFor="eventLikely"
+                    htmlFor="participateLikely"
                   >
                     Very Likely
                   </label>
@@ -363,13 +385,14 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
-                    id="eventNeutral"
+                    type="radio"
+                    name="participateEvents"
+                    id="participateNeutral"
                     value="neutral"
                   />
                   <label
                     className="form-check-label"
-                    htmlFor="eventNeutral"
+                    htmlFor="participateNeutral"
                   >
                     Neutral
                   </label>
@@ -377,13 +400,14 @@ const SurveyPage = () => {
                 <div className="form-check form-check-inline">
                   <input
                     className="form-check-input"
-                    type="checkbox"
-                    id="eventUnlikely"
+                    type="radio"
+                    name="participateEvents"
+                    id="participateUnlikely"
                     value="unlikely"
                   />
                   <label
                     className="form-check-label"
-                    htmlFor="eventUnlikely"
+                    htmlFor="participateUnlikely"
                   >
                     Unlikely
                   </label>
@@ -404,14 +428,14 @@ const SurveyPage = () => {
                   paddingTop: "25px",
                 }}
               >
-                9. Are there any locations that you would prefer to visit on your trip?
+                9. Do you have any specific dietary restrictions or preferences?
               </label>
-              <div>
-                <textarea
+              <div style={{ paddingTop: "5px" }}>
+                <input
+                  type="text"
                   className="form-control"
-                  rows="3"
-                  placeholder="Enter your preferred locations"
-                ></textarea>
+                  placeholder="Enter your dietary restrictions or preferences"
+                />
               </div>
             </div>
             <div className="form-group">
@@ -421,50 +445,40 @@ const SurveyPage = () => {
                   paddingTop: "25px",
                 }}
               >
-                10. Do you have any other comments?
+                10. Any other special requests or requirements?
               </label>
-              <div>
+              <div style={{ paddingTop: "5px" }}>
                 <textarea
                   className="form-control"
-                  rows="3"
-                  placeholder="Enter your comments"
+                  rows="4"
+                  placeholder="Enter your special requests or requirements"
                 ></textarea>
               </div>
             </div>
-            <br />
-          <center>
-            <button
-              className="btn btn-primary"
-              style={{
-                backgroundColor: "#00266B",
-                color: "white",
-                borderRadius: "3px",
-                paddingLeft: "30px",
-                paddingRight: "30px",
-                paddingTop: "8px",
-                paddingBottom: "8px",
-              }}
-            >
-              GENERATE
-            </button>
-          </center>
-          <br />
+            <div style={{ textAlign: "center", paddingTop: "30px" }}>
+              <button
+                type="submit"
+                className="btn btn-primary"
+                style={{
+                  backgroundColor: "#00266B",
+                  border: "none",
+                  width: "150px",
+                }}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </div>
+
         <div
           style={{
-            backgroundImage: `url(${footer})`,
-            backgroundPosition: "bottom center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            position: "relative",
-            height: "1100px",
-            marginTop: "calc(100% - 200px)", // Adjust this value as needed
+            minHeight: "50px",
           }}
         ></div>
+        <div className="Foot"></div>
       </div>
-
-
+      
     </>
   );
 };

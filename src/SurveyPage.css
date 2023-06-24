@@ -79,4 +79,12 @@ body{
 }
   
 
-
+.Foot {
+  background-image: url("./Images/footer.jpg");
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 1100px;
+  margin-top: 1200px;
+}
