@@ -3,14 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import bannerImage from "./Images/Banner1.jpeg";
 import "./SurveyPage.css";
 import star from "./Images/star.png";
-import footer from "./Images/footer.jpg";
+
 import { YourComponent } from "./YourComponent.jsx";
+import { YourComponent2 } from "./YourComponent2.jsx";
 
 function SurveyPage() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
-  };
+  
 
   return (
     <>
@@ -83,22 +81,9 @@ function SurveyPage() {
             >
               Plan your Trip!
             </h2>
-            <div className="form-group">
-              <label
-                style={{
-                  color: "#00266B",
-                }}
-              >
-                1. How many days is your trip?
-              </label>
-              <div style={{ paddingTop: "5px" }}>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="No. of Days"
-                />
-              </div>
-            </div>
+            <form>
+            <YourComponent2/>
+            
             <div className="form-group">
               <label
                 style={{
@@ -409,7 +394,8 @@ function SurveyPage() {
                   placeholder="Enter your special requests or requirements"
                 ></textarea>
               </div>
-            </div>
+              </div>
+              
             <div style={{ textAlign: "center", paddingTop: "30px" }}>
               <button
                 type="submit"
@@ -423,7 +409,8 @@ function SurveyPage() {
                 Submit
           </button>
           
-            </div>
+              </div>
+              </form>
            </div>
           
         </div>
