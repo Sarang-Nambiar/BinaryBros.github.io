@@ -115,7 +115,7 @@ function SurveyPage() {
                 </label>
                 <div style={{ paddingTop: "5px" }}>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     placeholder="No. of Days"
                     value={tripDuration}
