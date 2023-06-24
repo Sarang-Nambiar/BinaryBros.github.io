@@ -1,9 +1,9 @@
 import { config } from 'dotenv';
-config();
 
 import { Configuration, OpenAIApi } from 'openai'; // Configuration to setup the api
 // OpenAIAPI is the class that will be used to make requests to the API
-import readline from 'readline';    
+import readline from 'readline';
+config();    
 
 const openai = new OpenAIApi(new Configuration({
     apiKey: process.env.API_KEY

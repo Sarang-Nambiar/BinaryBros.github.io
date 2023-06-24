@@ -229,7 +229,14 @@ const SurveyPage = () => {
                     Tourist
                   </label>
                 </div>
-                <div style={{ paddingTop: "5px" }}>
+                <div className="form-check form-check-inline">
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="visitPurpose"
+                    id="purposeTourist"
+                    value="tourist"
+                  />
                   <input
                     type="text"
                     className="form-control"
