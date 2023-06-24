@@ -106,6 +106,7 @@ export function YourComponent() {
               type="text"
               className="form-control"
               placeholder="Other"
+              id="otherPurposeInput"
               disabled={inputDisabled}
               value={otherPurpose}
               onChange={handleOtherPurposeChange}
@@ -153,6 +154,7 @@ export function YourComponent() {
               type="text"
               className="form-control"
               placeholder="Other"
+              id="otherPurposeInput2"
               disabled={transportInputDisabled}
               value={otherTransportMedium}
               onChange={handleOtherTransportMediumChange}
