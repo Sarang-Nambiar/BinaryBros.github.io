@@ -82,7 +82,7 @@ submitbtn.addEventListener('click', () => {
     q4input.Child = NoChild;
     q4input.Infant = NoInfants;
 
-    inputs.q4input= q4input.textContent;
+    inputs.q4input= q4input;
 
 
     const q5inputYes = document.getElementById('purposeBusiness');
