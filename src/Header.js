@@ -48,10 +48,15 @@ export default function Header() {
       <div className={`header__size-menu ${isSizeMenuOpen ? 'open' : ''}`}>
         <ul className="header__size-menu-lists">
           <li>PLAN TRAVEL</li>
+          <hr></hr>
           <li>FLYING WITH US</li>
+          <hr></hr>
           <li>TRAVEL INFO</li>
+          <hr></hr>
           <li>PPS CLUB/KRISFLYER</li>
+          <hr></hr>
           <li>FOR BUSINESS</li>
+          <hr></hr>
         </ul>
       </div>
 
