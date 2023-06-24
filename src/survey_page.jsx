@@ -87,6 +87,7 @@ const SurveyPage = () => {
               </label>
               <div style={{ paddingTop: "5px" }}>
                 <input
+                  id="q1input"
                   type="text"
                   className="form-control"
                   placeholder="No. of Days"
@@ -505,6 +506,7 @@ const SurveyPage = () => {
             </div>
             <div style={{ textAlign: "center", paddingTop: "30px" }}>
               <button
+                id="submitbtn"
                 type="submit"
                 className="btn btn-primary"
                 style={{
