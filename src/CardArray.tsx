@@ -4,14 +4,22 @@ import Card from "./Card";
 
 interface CardArrayProps {
   disableSection: boolean;
+  resetCount: boolean;
 }
 
-const CardArray: React.FC<CardArrayProps> = ({ disableSection }) => {
+const CardArray: React.FC<CardArrayProps> = ({ disableSection, resetCount }) => {
   const [cards, setCards] = useState(["Plan 1"]);
 
   const handleAddCard = () => {
-    const newCard = `Plan ${cards.length + 1}`;
-    setCards([...cards, newCard]);
+    // resetCount true --> reset the count
+    if (resetCount) {
+      setCards(["Plan 1"]);
+      return;
+    }
+    else {
+      const newCard = `Plan ${cards.length + 1}`;
+      setCards([...cards, newCard]);
+    }
   };
 
   if (disableSection) {

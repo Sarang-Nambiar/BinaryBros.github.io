@@ -19,6 +19,7 @@ function SurveyPage() {
 
   var counter = 0;
   const [showCardArray, setShowCardArray] = React.useState(true);
+  const [resetCards, setResetCards] = React.useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!firstQuestionAnswered) {
@@ -26,8 +27,12 @@ function SurveyPage() {
       return;
     }
     counter = counter + 1;
-    if (counter >= 1) {
+    if (counter = 1) {
       setShowCardArray(false);
+    }
+    else if (counter > 1) {
+      setShowCardArray(false);
+      setResetCards(true);
     }
   };
 
@@ -440,10 +445,12 @@ function SurveyPage() {
               backgroundColor: "#ffffff",
               padding: "20px",
               zIndex: 1,
-            }}
+              display: showCardArray ? "none" : "block",
+              marginBottom: "50px",
+            } }
           >
             <br />
-            <CardArray disableSection={showCardArray} />
+            <CardArray disableSection={showCardArray} reset={resetCards}/>
           </div>
         </div>
         <div
@@ -452,7 +459,11 @@ function SurveyPage() {
           }}
         ></div>
 
-        <div className="Foot"></div>
+        <div className="Foot" style={
+          {
+            marginTop: showCardArray ? "90rem" : "95rem",
+          }
+        }></div>
       </div>
     </>
   );
