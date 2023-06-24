@@ -4,8 +4,14 @@ import bannerImage from "./Images/Banner1.jpeg";
 import "./SurveyPage.css";
 import star from "./Images/star.png";
 import footer from "./Images/footer.jpg";
+import { YourComponent } from "./YourComponent.jsx";
 
-const SurveyPage = () => {
+function SurveyPage() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+  };
+
   return (
     <>
       <div className="Container">
@@ -87,7 +93,6 @@ const SurveyPage = () => {
               </label>
               <div style={{ paddingTop: "5px" }}>
                 <input
-                  id="q1input"
                   type="text"
                   className="form-control"
                   placeholder="No. of Days"
@@ -189,113 +194,14 @@ const SurveyPage = () => {
                 </div>
               </div>
             </div>
-            <div className="form-group">
-              <label
-                style={{
-                  color: "#00266B",
-                  paddingTop: "25px",
-                }}
-              >
-                5. What is the purpose of your visit?
-              </label>
-              <div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="visitPurpose"
-                    id="purposeBusiness"
-                    value="business"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="purposeBusiness"
-                  >
-                    Business
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="visitPurpose"
-                    id="purposeTourist"
-                    value="tourist"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="purposeTourist"
-                  >
-                    Tourist
-                  </label>
-                </div>
+
+            <YourComponent/>
+
+            
+
+
                 
-                  <div className="form-check form-check-inline">
-                    <input
-                      className="form-check-input"
-                      type="radio"
-                      name="visitPurpose"
-                      id="purposeOther"
-                      value="Other"
-                    />
-                    
-                </div>
-                <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Other"
-                    />
-              </div>
-            </div>
-            <div className="form-group">
-              <label
-                style={{
-                  color: "#00266B",
-                  paddingTop: "25px",
-                }}
-              >
-                6. What is your preferred transportation medium?
-              </label>
-              <div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="transportMedium"
-                    id="transportPublic"
-                    value="public"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="transportPublic"
-                  >
-                    Public Transport
-                  </label>
-                </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="transportMedium"
-                    id="transportTaxis"
-                    value="taxis"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="transportTaxis"
-                  >
-                    Taxis
-                  </label>
-                </div>
-                <div style={{ paddingTop: "5px" }}>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Other"
-                  />
-                </div>
-              </div>
-            </div>
+              
             <div className="form-group">
               <label
                 style={{
@@ -506,7 +412,6 @@ const SurveyPage = () => {
             </div>
             <div style={{ textAlign: "center", paddingTop: "30px" }}>
               <button
-                id="submitbtn"
                 type="submit"
                 className="btn btn-primary"
                 style={{
@@ -516,10 +421,15 @@ const SurveyPage = () => {
                 }}
               >
                 Submit
-              </button>
+          </button>
+          
             </div>
-          </div>
+           </div>
+          
         </div>
+
+        
+            
 
         <div
           style={{
@@ -527,8 +437,9 @@ const SurveyPage = () => {
           }}
         ></div>
         <div className="Foot"></div>
-      </div>
-      
+        </div>
+        
+
     </>
   );
 };
