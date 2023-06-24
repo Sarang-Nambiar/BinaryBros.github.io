@@ -195,22 +195,13 @@ function SurveyPage() {
               </div>
             </div>
 
-            <div>
-              <YourComponent />
-            </div>
+            <YourComponent/>
 
             
 
 
-                <div style={{ paddingTop: "5px" }}>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Other"
-                  />
-                </div>
-              </div>
-            </div>
+                
+              
             <div className="form-group">
               <label
                 style={{
@@ -432,7 +423,11 @@ function SurveyPage() {
                 Submit
           </button>
           
+            </div>
+           </div>
+          
         </div>
+
         
             
 
