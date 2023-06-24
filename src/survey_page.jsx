@@ -3,11 +3,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import bannerImage from "./Images/Banner1.jpeg";
 import "./SurveyPage.css";
 import star from "./Images/star.png";
-import header from "./Images/header.jpg";
 import footer from "./Images/footer.jpg";
 import { YourComponent } from "./YourComponent.jsx";
 
-const SurveyPage = () => {
+function SurveyPage() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+  };
+
   return (
     <>
       <div className="Container">
@@ -190,14 +194,23 @@ const SurveyPage = () => {
                 </div>
               </div>
             </div>
-            
+
             <div>
-            <YourComponent />
+              <YourComponent />
             </div>
 
+            
 
 
-
+                <div style={{ paddingTop: "5px" }}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Other"
+                  />
+                </div>
+              </div>
+            </div>
             <div className="form-group">
               <label
                 style={{
@@ -417,10 +430,11 @@ const SurveyPage = () => {
                 }}
               >
                 Submit
-              </button>
-            </div>
-          </div>
+          </button>
+          
         </div>
+        
+            
 
         <div
           style={{
@@ -428,8 +442,9 @@ const SurveyPage = () => {
           }}
         ></div>
         <div className="Foot"></div>
-      </div>
-      
+        </div>
+        
+
     </>
   );
 };
