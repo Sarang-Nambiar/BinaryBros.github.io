@@ -1,5 +1,3 @@
-import { config } from 'dotenv';
-
 import { Configuration, OpenAIApi } from 'openai'; // Configuration to setup the api
 // OpenAIAPI is the class that will be used to make requests to the API
 
@@ -7,6 +5,9 @@ function isNumeric(input) {
     var regex = /^[0-9]+$/; // Regular expression to match only numbers
     return regex.test(input);
 }
+
+const API_KEY='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';
+
 // Accepting user input 
 const inputs = {};
 const submitbtn = document.getElementById('submitbtn');
@@ -214,9 +215,8 @@ const prompt = 'I need you to make 3 itineraries for the location : Hanoi'+
 +'Do not add any messages for line before or after the itinerary. Only give me the itinerary starting for Itinerary name:'
 // Setting up the OpenAI API
 
-config();
 const openai = new OpenAIApi(new Configuration({
-    apiKey: process.env.API_KEY
+    apiKey: API_KEY
 }));
 
 // const userInterface = readline.createInterface({ // getting user input
