@@ -18,8 +18,9 @@ module.exports = {
   },
   resolve: {
     fallback: {
-      // Add fallbacks for any required polyfills or empty modules
-      crypto: false, // Empty module for crypto
+      path: false,
+      os: false,
+      crypto: false,
     },
   },
   // Add any additional plugins and configuration options here

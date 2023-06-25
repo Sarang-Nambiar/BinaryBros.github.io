@@ -28,12 +28,10 @@ function SurveyPage() {
     if (!firstQuestionAnswered) {
       alert("Please answer the first question.");
       return;
-    }
-    else {
+    } else {
       counter++;
       if ((counter = 1)) {
         setShowCardArray(false);
-  
       } else if (counter > 1) {
         setShowCardArray(false);
         setResetCards(true);
@@ -41,10 +39,10 @@ function SurveyPage() {
       }
       const fetchData = async () => {
         const res = await getRes();
-        cardRes = cardValues;
+        var cardRes = cardValues;
         cardRes.push(res);
         setCardValues(cardRes);
-      }
+      };
 
       fetchData();
     }
@@ -464,7 +462,11 @@ function SurveyPage() {
             }}
           >
             <br />
-            <CardArray disableSection={showCardArray} reset={resetCards} cardContents={cardValues}/>
+            <CardArray
+              disableSection={showCardArray}
+              reset={resetCards}
+              cardContents={cardValues}
+            />
           </div>
         </div>
 
