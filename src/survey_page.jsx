@@ -5,7 +5,7 @@ import "./SurveyPage.css";
 import star from "./Images/star.png";
 import CardArray from "./CardArray.tsx";
 import { YourComponent } from "./YourComponent.jsx";
-import {getRes, onSubmit } from "./script";
+import {getRes, onSubmit, ScriptComponent } from "./script";
 
 function SurveyPage() {
   const [tripDuration, setTripDuration] = useState("");
@@ -134,6 +134,7 @@ function SurveyPage() {
                     value={tripDuration}
                     onChange={handleTripDurationChange}
                     required
+                    ref={ScriptComponent.q1inputRef}
                   />
                 </div>
               </div>
