@@ -199,16 +199,16 @@ const requests = inputs.q10input != null ? inputs.q10input : 'None';
 
 const prompt = 'I need you to make 3 itineraries for the location : Hanoi'+
 '\nMake the itinerary by taking the following into consideration.'
-+'\n1. The trip is for ${duration} days.'
-+'\n2. Provide Hotel recommendations: ${recommendations}'
-+'\n3. Estimated budget for the whole trip is: ${budget}4. Number of individuals on the trip: ${travelling_individuals.Adult} Adults, ${travelling_individuals.Child} children and ${travelling_individuals.Infant} infants'
-+'\n5. Purpose of the trip: ${purpose}'
-+'\n6. Preferred Medium of transport: ${medium}'
-+'\n7. Do you want to go off the beaten path: ${beaten_off_path}'
-+'\n8. Do you want to attend any local events or festivals: ${festivals}'
-+'\n9. Any dietary or other restrictions or any preferences: ${restrictions}'
-+'\n10. Any other requests: ${requests}'
-+'\n Give me the name of the itineraries and make sure each itinerary is the form day 1, day 2...'
++`\n1. The trip is for ${duration} days.`
++`\n2. Provide Hotel recommendations: ${recommendations}`
++`\n3. Estimated budget for the whole trip is: ${budget}4. Number of individuals on the trip: ${travelling_individuals.Adult} Adults, ${travelling_individuals.Child} children and ${travelling_individuals.Infant} infants`
++`\n5. Purpose of the trip: ${purpose}`
++`\n6. Preferred Medium of transport: ${medium}`
++`\n7. Do you want to go off the beaten path: ${beaten_off_path}`
++`\n8. Do you want to attend any local events or festivals: ${festivals}`
++`\n9. Any dietary or other restrictions or any preferences: ${restrictions}`
++`\n10. Any other requests: ${requests}`
++`\n Give me the name of the itineraries and make sure each itinerary is the form day 1, day 2...`
 +'Do not add any messages for line before or after the itinerary. Only give me the itinerary starting for Itinerary name:'
 // Setting up the OpenAI API
 
