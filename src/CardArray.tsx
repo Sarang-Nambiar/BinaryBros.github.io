@@ -14,7 +14,7 @@ const CardArray: React.FC<CardArrayProps> = ({
   resetCount,
   cardContents
 }) => {
-  const [cards, setCards] = useState(cardContents);
+  const [cards, setCards] = useState(['Plan 1']);
 
   const handleAddCard = async () => {
     if (resetCount) {

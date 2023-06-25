@@ -6,14 +6,12 @@ function isNumeric(input) {
     return regex.test(input);
 }
 
-const API_KEY='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';
+const API_KEY='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';
 
 // Accepting user input 
 const inputs = {};
-const submitbtn = document.getElementById('submitbtn');
-submitbtn.addEventListener('click', () => {
+function onSubmit(){
 
-    
     const q1input = document.getElementById('q1input');
 
     if(q1input.textContent !== "" && isNumeric(q1input.textContent)) {
@@ -25,7 +23,6 @@ submitbtn.addEventListener('click', () => {
     }
 
     const q2inputYes = document.getElementById('hotelRecommendationYes');
-    const q2inputNo = document.getElementById('hotelRecommendationNo');
 
     if(q2inputYes.checked) {
         inputs.q2input = q2inputYes.value;
@@ -38,7 +35,7 @@ submitbtn.addEventListener('click', () => {
         // TODO : Add error message
     }
 
-    
+
     const q4input1 = document.getElementById('NoAdult');
 
     if (isNumeric(q4input1.textContent)){
@@ -97,7 +94,7 @@ submitbtn.addEventListener('click', () => {
     q5input = q5inputNo.value;
     } else {
     q5input = otherPurposeInput.value;
-}
+    }
     inputs.q5input = q5input.textContent;
 
     const q6inputYes = document.getElementById('transportPublic');
@@ -112,7 +109,7 @@ submitbtn.addEventListener('click', () => {
     q6input = q6inputNo.value;
     } else {
     q6input = otherPurposeInput2.value;
-}
+    }
     inputs.q6input = q6input.textContent;
 
     const q7inputvlikely = document.getElementById('openVeryLikely');
@@ -174,8 +171,9 @@ submitbtn.addEventListener('click', () => {
     }else if(!isNumeric(q10input.textContent)) {
         // TODO : Add error message
     }
+}
 
-})
+submitbtn.onclick = onSubmit;
 
 // Creating template prompt
 // Hardcoding to Hanoi for simplicity.
@@ -240,9 +238,9 @@ const res = await openai.createChatCompletion({
 })
 
 
-const getRes = () => {
+const getRes = async () => {
     return res.data.choices[0].message.content;
 }
 
 getRes();
-export default getRes;
+export default getRes, onSubmit;

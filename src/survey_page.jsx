@@ -4,9 +4,8 @@ import bannerImage from "./Images/Banner1.jpeg";
 import "./SurveyPage.css";
 import star from "./Images/star.png";
 import CardArray from "./CardArray.tsx";
-import getRes from "./script";
-
 import { YourComponent } from "./YourComponent.jsx";
+import getRes from "./script";
 
 function SurveyPage() {
   const [tripDuration, setTripDuration] = useState("");
@@ -130,6 +129,7 @@ function SurveyPage() {
                     type="number"
                     className="form-control"
                     placeholder="No. of Days"
+                    id="q1input"
                     value={tripDuration}
                     onChange={handleTripDurationChange}
                     required
@@ -191,8 +191,9 @@ function SurveyPage() {
                 <div style={{ paddingTop: "5px" }}>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control" 
                     placeholder="SGD"
+                    id="q3input"
                   />
                 </div>
               </div>
@@ -433,6 +434,7 @@ function SurveyPage() {
 
               <div style={{ textAlign: "center", paddingTop: "30px" }}>
                 <button
+                  id="submitbtn"
                   type="submit"
                   className="btn btn-primary"
                   style={{
