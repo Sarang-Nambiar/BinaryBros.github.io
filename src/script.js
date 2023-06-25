@@ -244,5 +244,5 @@ const getRes = () => {
     return res.data.choices[0].message.content;
 }
 
-export default getRes;
 getRes();
+export default getRes;
