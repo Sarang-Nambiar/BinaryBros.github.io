@@ -4,6 +4,7 @@ import bannerImage from "./Images/Banner1.jpeg";
 import "./SurveyPage.css";
 import star from "./Images/star.png";
 import CardArray from "./CardArray.tsx";
+import getRes from "./script";
 
 import { YourComponent } from "./YourComponent.jsx";
 
@@ -20,18 +21,32 @@ function SurveyPage() {
   var counter = 0;
   const [showCardArray, setShowCardArray] = React.useState(true);
   const [resetCards, setResetCards] = React.useState(false);
+  const [cardValues, setCardValues] = React.useState([""]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!firstQuestionAnswered) {
       alert("Please answer the first question.");
       return;
     }
-    counter = counter + 1;
-    if ((counter = 1)) {
-      setShowCardArray(false);
-    } else if (counter > 1) {
-      setShowCardArray(false);
-      setResetCards(true);
+    else {
+      counter++;
+      if ((counter = 1)) {
+        setShowCardArray(false);
+  
+      } else if (counter > 1) {
+        setShowCardArray(false);
+        setResetCards(true);
+        setCardValues([""]);
+      }
+      const fetchData = async () => {
+        const res = await getRes();
+        cardRes = cardValues;
+        cardRes.push(res);
+        setCardValues(cardRes);
+      }
+
+      fetchData();
     }
   };
 
@@ -449,7 +464,7 @@ function SurveyPage() {
             }}
           >
             <br />
-            <CardArray disableSection={showCardArray} reset={resetCards} />
+            <CardArray disableSection={showCardArray} reset={resetCards} cardContents={cardValues}/>
           </div>
         </div>
 

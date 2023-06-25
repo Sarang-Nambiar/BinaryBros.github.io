@@ -2,7 +2,6 @@ import { config } from 'dotenv';
 
 import { Configuration, OpenAIApi } from 'openai'; // Configuration to setup the api
 // OpenAIAPI is the class that will be used to make requests to the API
-import readline from 'readline';
 
 function isNumeric(input) {
     var regex = /^[0-9]+$/; // Regular expression to match only numbers
@@ -244,3 +243,6 @@ const res = await openai.createChatCompletion({
 const getRes = () => {
     return res.data.choices[0].message.content;
 }
+
+export default getRes;
+getRes();

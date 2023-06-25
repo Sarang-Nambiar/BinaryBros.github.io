@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Card from "./Card";
+import getRes from "./script.js"; // Importing the getRes function
 
 interface CardArrayProps {
   disableSection: boolean;
   resetCount: boolean;
+  cardContents: string[];
 }
 
-const CardArray: React.FC<CardArrayProps> = ({ disableSection, resetCount }) => {
-  const [cards, setCards] = useState(["Plan 1"]);
+const CardArray: React.FC<CardArrayProps> = ({
+  disableSection,
+  resetCount,
+  cardContents
+}) => {
+  const [cards, setCards] = useState(cardContents);
 
-  const handleAddCard = () => {
-    // resetCount true --> reset the count
+  const handleAddCard = async () => {
     if (resetCount) {
       setCards(["Plan 1"]);
       return;
-    }
-    else {
+    } else {
       const newCard = `Plan ${cards.length + 1}`;
       setCards([...cards, newCard]);
+
+      // Call getRes with the necessary parameters
+      const result = await getRes(/* Pass the required arguments here */);
+      console.log(result); // Output the result from getRes
     }
   };
 
@@ -41,9 +49,7 @@ const CardArray: React.FC<CardArrayProps> = ({ disableSection, resetCount }) => 
           <Card
             key={index}
             title={card}
-            content={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend ligula vel ligula lobortis malesuada. Nam id quam at tortor placerat dapibus."
-            }
+            content={cardContents[index]} // Use cardContents[index] as the content
           />
         ))}
       </div>
