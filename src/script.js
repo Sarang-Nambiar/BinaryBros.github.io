@@ -6,11 +6,11 @@ function isNumeric(input) {
     return regex.test(input);
 }
 
-const API_KEY='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';
+const API_KEY='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';
 
 // Accepting user input 
 const inputs = {};
-function onSubmit(){
+export function onSubmit(){
 
     const q1input = document.getElementById('q1input');
 
@@ -237,7 +237,7 @@ const res = await openai.createChatCompletion({
 })
 
 
-const getRes = async () => {
+export const getRes = async () => {
     return res.data.choices[0].message.content;
 }
 

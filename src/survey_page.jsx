@@ -5,7 +5,7 @@ import "./SurveyPage.css";
 import star from "./Images/star.png";
 import CardArray from "./CardArray.tsx";
 import { YourComponent } from "./YourComponent.jsx";
-import getRes from "./script";
+import {getRes, onSubmit } from "./script";
 
 function SurveyPage() {
   const [tripDuration, setTripDuration] = useState("");
@@ -29,6 +29,7 @@ function SurveyPage() {
       return;
     } else {
       counter++;
+      onSubmit();
       if ((counter = 1)) {
         setShowCardArray(false);
       } else if (counter > 1) {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Card from "./Card";
-import getRes from "./script.js"; // Importing the getRes function
+import {getRes, onSubmit} from "./script.js"; // Importing the getRes function
 
 interface CardArrayProps {
   disableSection: boolean;
@@ -25,6 +25,7 @@ const CardArray: React.FC<CardArrayProps> = ({
       setCards([...cards, newCard]);
 
       // Call getRes with the necessary parameters
+      onSubmit(); // Call the onSubmit function
       const result = await getRes(/* Pass the required arguments here */);
       console.log(result); // Output the result from getRes
     }
