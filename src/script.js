@@ -173,7 +173,6 @@ function onSubmit(){
     }
 }
 
-submitbtn.onclick = onSubmit;
 
 // Creating template prompt
 // Hardcoding to Hanoi for simplicity.
@@ -243,4 +242,4 @@ const getRes = async () => {
 }
 
 getRes();
-export default getRes, onSubmit;
+module.exports = {getRes, onSubmit};
