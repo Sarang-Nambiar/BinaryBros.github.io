@@ -241,6 +241,6 @@ const res = await openai.createChatCompletion({
 })
 
 
-const getRes() = () => {
+const getRes = () => {
     return res.data.choices[0].message.content;
 }
