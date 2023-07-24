@@ -5,9 +5,61 @@ import "./SurveyPage.css";
 import star from "./Images/star.png";
 import CardArray from "./CardArray.tsx";
 import { YourComponent } from "./YourComponent.jsx";
-import {getRes, onSubmit, ScriptComponent } from "./script";
+import { ScriptComponent } from "./script";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 function SurveyPage() {
+  // initialising formik
+
+  const formik = useFormik({
+    initialValues: {
+      tripDuration: null,
+      hotelRecommendation: "",
+      budget: "",
+      adults: "",
+      children: "",
+      infants: "",
+      purpose: "",
+      medium: "",
+      beaten_off_path: "",
+      festivals: "",
+      restrictions: "",
+      requests: "" 
+    }, 
+    // Form validation
+    validationSchema: Yup.object({
+      tripDuration: Yup.number()
+        .max(60, 'Trip Duration cannot exceed a month')
+        .required("Please enter the duration of your trip"),
+      hotelRecommendation: Yup.string(),
+      budget: Yup.number()
+        .max(10, 'Budget must be less than 10 digits'),
+      adults: Yup.number()
+        .max(2, 'More than 100 Adults are not allowed'),
+      children: Yup.number()
+        .max(2, 'More than 100 Children are not allowed'),
+      infants: Yup.number()
+        .max(2, 'More than 100 Infants are not allowed'),
+      purpose: Yup.string()
+        .max(50, 'Purpose must be less than 50 characters'),
+      medium: Yup.string()
+        .max(25, 'Medium must be less than 25 characters'),
+      beaten_off_path: Yup.string(),
+      festivals: Yup.string(),
+      restrictions: Yup.string(),
+      requests: Yup.string()
+    }),
+    // Submit form
+
+    onSubmit: (values) => {
+      console.log(values)
+    }
+
+    // Fetching errors
+    // console.log(formik.errors)
+});
+
   const [tripDuration, setTripDuration] = useState("");
   const [firstQuestionAnswered, setFirstQuestionAnswered] = useState(false);
 
@@ -29,7 +81,6 @@ function SurveyPage() {
       return;
     } else {
       counter++;
-      onSubmit();
       if ((counter = 1)) {
         setShowCardArray(false);
       } else if (counter > 1) {
@@ -37,14 +88,14 @@ function SurveyPage() {
         setResetCards(true);
         setCardValues([""]);
       }
-      const fetchData = async () => {
-        const res = await getRes();
-        var cardRes = cardValues;
-        cardRes.push(res);
-        setCardValues(cardRes);
-      };
+      // const fetchData = async () => {
+      //   const res = await getRes();
+      //   var cardRes = cardValues;
+      //   cardRes.push(res);
+      //   setCardValues(cardRes);
+      // };
 
-      fetchData();
+      // fetchData();
     }
   };
 
@@ -104,6 +155,7 @@ function SurveyPage() {
               position: "absolute",
               top: "calc(100% - 3cm)",
               left: "12.5%",
+              borderRadius: "25px",
               width: "75%",
               backgroundColor: "#ffffff",
               padding: "20px",
@@ -119,7 +171,7 @@ function SurveyPage() {
             >
               Plan your Trip!
             </h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={formik.handleSubmit}>
               <div className="form-group">
                 <label style={{ color: "#00266B" }}>
                   1. How many days is your trip?{" "}
@@ -129,14 +181,21 @@ function SurveyPage() {
                   <input
                     type="number"
                     className="form-control"
-                    placeholder="No. of Days"
-                    id="q1input"
-                    value={tripDuration}
-                    onChange={handleTripDurationChange}
+                    placeholder="Number of Days"
+                    id="tripDuration"
+                    value={formik.values.tripDuration}
+                    onChange={formik.handleChange}
                     required
-                    ref={ScriptComponent.q1inputRef}
                   />
                 </div>
+                <label style={{
+                  color: "red",
+                  padding:0,
+                  marginLeft:"10px",
+                  fontSize: "12px",
+                }}>
+                  {formik.errors.tripDuration ? formik.errors.tripDuration : null}
+                </label>
               </div>
 
               <div className="form-group">
@@ -154,8 +213,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="hotelRecommendation"
-                      id="hotelRecommendationYes"
-                      value="yes"
+                      id="hotelRecommendation"
+                      value="Yes"
+                      onChange={formik.handleChange}
                     />
                     <label
                       className="form-check-label"
@@ -169,8 +229,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="hotelRecommendation"
-                      id="hotelRecommendationNo"
-                      value="no"
+                      id="hotelRecommendation"
+                      value="No"
+                      onChange={formik.handleChange}
                     />
                     <label
                       className="form-check-label"
@@ -195,7 +256,9 @@ function SurveyPage() {
                     type="text"
                     className="form-control" 
                     placeholder="SGD"
-                    id="q3input"
+                    id="budget"
+                    value={formik.values.budget}
+                    onChange={formik.handleChange}
                   />
                 </div>
               </div>
@@ -215,6 +278,9 @@ function SurveyPage() {
                       type="number"
                       className="form-control"
                       placeholder="0"
+                      id="adults"
+                      value={formik.values.adults}
+                      onChange={formik.handleChange}
                     />
                   </div>
                   <div style={{ marginRight: "10px" }}>
@@ -223,6 +289,9 @@ function SurveyPage() {
                       type="number"
                       className="form-control"
                       placeholder="0"
+                      id="children"
+                      value={formik.values.children}
+                      onChange={formik.handleChange}
                     />
                   </div>
                   <div>
@@ -231,6 +300,9 @@ function SurveyPage() {
                       type="number"
                       className="form-control"
                       placeholder="0"
+                      id="infants"
+                      value={formik.values.infants}
+                      onChange={formik.handleChange}
                     />
                   </div>
                 </div>
@@ -254,8 +326,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="openExplore"
-                      id="openLikely"
-                      value="likely"
+                      id="beaten_off_path"
+                      value="Very Likely"
+                      onChange={formik.handleChange}
                     />
                     <label className="form-check-label" htmlFor="openLikely">
                       Very Likely
@@ -266,8 +339,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="openExplore"
-                      id="openLikely"
+                      id="beaten_off_path"
                       value="Likely"
+                      onChange={formik.handleChange}
                     />
                     <label className="form-check-label" htmlFor="openLikely">
                       Likely
@@ -278,8 +352,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="openExplore"
-                      id="openNeutral"
-                      value="neutral"
+                      id="beaten_off_path"
+                      value="Neutral"
+                      onChange={formik.handleChange}
                     />
                     <label className="form-check-label" htmlFor="openNeutral">
                       Neutral
@@ -290,8 +365,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="openExplore"
-                      id="openUnlikely"
-                      value="unlikely"
+                      id="beaten_off_path"
+                      value="Unlikely"
+                      onChange={formik.handleChange}
                     />
                     <label className="form-check-label" htmlFor="openUnlikely">
                       Unlikely
@@ -302,8 +378,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="openExplore"
-                      id="openVeryUnlikely"
-                      value="unlikely"
+                      id="beaten_off_path"
+                      value="Very Unlikely"
+                      onChange={formik.handleChange}
                     />
                     <label
                       className="form-check-label"
@@ -330,8 +407,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="participateEvents"
-                      id="participateLikely"
-                      value="likely"
+                      id="festivals"
+                      value="Very Likely"
+                      onChange={formik.handleChange}
                     />
                     <label
                       className="form-check-label"
@@ -345,8 +423,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="openExplore"
-                      id="openLikely"
+                      id="festivals"
                       value="Likely"
+                      onChange={formik.handleChange}
                     />
                     <label className="form-check-label" htmlFor="openLikely">
                       Likely
@@ -357,8 +436,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="participateEvents"
-                      id="participateNeutral"
-                      value="neutral"
+                      id="festivals"
+                      value="Neutral"
+                      onChange={formik.handleChange}
                     />
                     <label
                       className="form-check-label"
@@ -372,8 +452,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="participateEvents"
-                      id="participateUnlikely"
-                      value="unlikely"
+                      id="festivals"
+                      value="Unlikely"
+                      onChange={formik.handleChange}
                     />
                     <label
                       className="form-check-label"
@@ -387,8 +468,9 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="openExplore"
-                      id="openVeryUnlikely"
-                      value="Veryunlikely"
+                      id="festivals"
+                      value="Very Unlikely"
+                      onChange={formik.handleChange}
                     />
                     <label className="form-check-label" htmlFor="openUnlikely">
                       Very Unlikely
@@ -410,8 +492,10 @@ function SurveyPage() {
                   <input
                     type="text"
                     className="form-control"
-                    id="q9input"
+                    id="restrictions"
                     placeholder="Enter your dietary restrictions or preferences"
+                    value={formik.values.restrictions}
+                    onChange={formik.handleChange}
                   />
                 </div>
               </div>
@@ -427,9 +511,11 @@ function SurveyPage() {
                 <div style={{ paddingTop: "5px" }}>
                   <textarea
                     className="form-control"
-                    id="q10input"
+                    id="requests"
                     rows="4"
                     placeholder="Enter your special requests or requirements"
+                    value = {formik.values.requests}
+                    onChange={formik.handleChange}
                   ></textarea>
                 </div>
               </div>
@@ -444,7 +530,6 @@ function SurveyPage() {
                     border: "none",
                     width: "150px",
                   }}
-                  disabled={!firstQuestionAnswered}
                 >
                   Submit
                 </button>
