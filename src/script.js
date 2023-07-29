@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from 'openai'; 
 // config()// Configuration to setup the api
 // OpenAIAPI is the class that will be used to make requests to the API
-API_KEY = "Your API KEY"
+const API_KEY = "Your API KEY"
 const openai = new OpenAIApi(new Configuration({
     apiKey: API_KEY,
 }));
