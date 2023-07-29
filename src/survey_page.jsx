@@ -4,14 +4,18 @@ import bannerImage from "./Images/Banner1.jpeg";
 import "./SurveyPage.css";
 import star from "./Images/star.png";
 import CardArray from "./CardArray.tsx";
-import { YourComponent } from "./YourComponent.jsx";
 import { ScriptComponent } from "./script";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { getRes } from "./script";
 
 function SurveyPage() {
   // initialising formik
+  const [showCardArray, setShowCardArray] = React.useState(true);
+  const [resetCards, setResetCards] = React.useState(false);
+  const [cardValues, setCardValues] = React.useState([""]);
 
+  var counter = 0;
   const formik = useFormik({
     initialValues: {
       tripDuration: null,
@@ -25,79 +29,65 @@ function SurveyPage() {
       beaten_off_path: "",
       festivals: "",
       restrictions: "",
-      requests: "" 
-    }, 
+      requests: "",
+    },
     // Form validation
     validationSchema: Yup.object({
       tripDuration: Yup.number()
-        .max(60, 'Trip Duration cannot exceed a month')
+        .max(60, "Trip Duration cannot exceed a month")
         .required("Please enter the duration of your trip"),
       hotelRecommendation: Yup.string(),
-      budget: Yup.number()
-        .max(10, 'Budget must be less than 10 digits'),
-      adults: Yup.number()
-        .max(2, 'More than 100 Adults are not allowed'),
-      children: Yup.number()
-        .max(2, 'More than 100 Children are not allowed'),
-      infants: Yup.number()
-        .max(2, 'More than 100 Infants are not allowed'),
-      purpose: Yup.string()
-        .max(50, 'Purpose must be less than 50 characters'),
-      medium: Yup.string()
-        .max(25, 'Medium must be less than 25 characters'),
+      budget: Yup.number(),
+      adults: Yup.number().max(100, "More than 100 Adults are not allowed"),
+      children: Yup.number().max(100, "More than 100 Children are not allowed"),
+      infants: Yup.number().max(100, "More than 100 Infants are not allowed"),
+      purpose: Yup.string(),
+      medium: Yup.string(),
       beaten_off_path: Yup.string(),
       festivals: Yup.string(),
       restrictions: Yup.string(),
-      requests: Yup.string()
+      requests: Yup.string(),
     }),
     // Submit form
 
     onSubmit: (values) => {
-      console.log(values)
-    }
-
-    // Fetching errors
-    // console.log(formik.errors)
-});
-
-  const [tripDuration, setTripDuration] = useState("");
-  const [firstQuestionAnswered, setFirstQuestionAnswered] = useState(false);
-
-  const handleTripDurationChange = (event) => {
-    const value = event.target.value;
-    setTripDuration(value);
-    setFirstQuestionAnswered(value.trim() !== "");
-  };
-
-  var counter = 0;
-  const [showCardArray, setShowCardArray] = React.useState(true);
-  const [resetCards, setResetCards] = React.useState(false);
-  const [cardValues, setCardValues] = React.useState([""]);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!firstQuestionAnswered) {
-      alert("Please answer the first question.");
-      return;
-    } else {
+      console.log(values);
       counter++;
-      if ((counter = 1)) {
+      if (counter === 1) {
         setShowCardArray(false);
       } else if (counter > 1) {
         setShowCardArray(false);
         setResetCards(true);
         setCardValues([""]);
       }
-      // const fetchData = async () => {
-      //   const res = await getRes();
-      //   var cardRes = cardValues;
-      //   cardRes.push(res);
-      //   setCardValues(cardRes);
-      // };
+      const fetchData = async () => {
+        const res = await getRes(values);
+        var cardRes = cardValues;
+        cardRes.push(res);
+        setCardValues(cardRes);
+      };
 
-      // fetchData();
-    }
+      fetchData();
+      formik.resetForm();
+    },
+  });
+  const [inputDisabled, setInputDisabled] = useState(false);
+  const [tripDuration, setTripDuration] = useState("");
+
+  const handleTripDurationChange = (event) => {
+    const value = event.target.value;
+    setTripDuration(value);
+    // setFirstQuestionAnswered(value.trim() !== "");
   };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (!firstQuestionAnswered) {
+  //     alert("Please answer the first question.");
+  //     return;
+  //   } else {
+  //   }
+  // };
 
   return (
     <>
@@ -188,13 +178,17 @@ function SurveyPage() {
                     required
                   />
                 </div>
-                <label style={{
-                  color: "red",
-                  padding:0,
-                  marginLeft:"10px",
-                  fontSize: "12px",
-                }}>
-                  {formik.errors.tripDuration ? formik.errors.tripDuration : null}
+                <label
+                  style={{
+                    color: "red",
+                    padding: 0,
+                    marginLeft: "10px",
+                    fontSize: "12px",
+                  }}
+                >
+                  {formik.touched.tripDuration && formik.errors.tripDuration ? ( // added this block
+                    <div>{formik.errors.tripDuration}</div>
+                  ) : null}
                 </label>
               </div>
 
@@ -213,13 +207,13 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="hotelRecommendation"
-                      id="hotelRecommendation"
+                      id="hotelRecommendationYes"
                       value="Yes"
                       onChange={formik.handleChange}
                     />
                     <label
                       className="form-check-label"
-                      htmlFor="hotelRecommendationYes"
+                      htmlFor="hotelRecommendation"
                     >
                       Yes
                     </label>
@@ -229,13 +223,13 @@ function SurveyPage() {
                       className="form-check-input"
                       type="radio"
                       name="hotelRecommendation"
-                      id="hotelRecommendation"
+                      id="hotelRecommendationNo"
                       value="No"
                       onChange={formik.handleChange}
                     />
                     <label
                       className="form-check-label"
-                      htmlFor="hotelRecommendationNo"
+                      htmlFor="hotelRecommendation"
                     >
                       No
                     </label>
@@ -254,9 +248,10 @@ function SurveyPage() {
                 <div style={{ paddingTop: "5px" }}>
                   <input
                     type="text"
-                    className="form-control" 
+                    className="form-control"
                     placeholder="SGD"
-                    id="budget"
+                    name="budget"
+                    id="estimBudget"
                     value={formik.values.budget}
                     onChange={formik.handleChange}
                   />
@@ -308,7 +303,104 @@ function SurveyPage() {
                 </div>
               </div>
 
-              <YourComponent />
+              <div className="form-group">
+                <label style={{ color: "#00266B", paddingTop: "25px" }}>
+                  5. What is the purpose of your visit?
+                </label>
+                <div>
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="purpose"
+                      id="purposeBusiness"
+                      value="business"
+                      onChange={formik.handleChange}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="purposeBusiness"
+                    >
+                      Business
+                    </label>
+                  </div>
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="purpose"
+                      id="purposeTourist"
+                      value="tourist"
+                      onChange={formik.handleChange}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="purposeTourist"
+                    >
+                      Tourist
+                    </label>
+                  </div>
+                  <div style={{ paddingTop: "5px" }}>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Other"
+                      name="purpose"
+                      id="otherPurposeInput"
+                      onChange={formik.handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="form-group">
+                <label style={{ color: "#00266B", paddingTop: "25px" }}>
+                  6. What is your preferred transportation medium?
+                </label>
+                <div>
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="medium"
+                      id="transportPublic"
+                      value="public"
+                      onChange={formik.handleChange}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="transportPublic"
+                    >
+                      Public Transport
+                    </label>
+                  </div>
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="medium"
+                      id="transportTaxis"
+                      value="taxis"
+                      onChange={formik.handleChange}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="transportTaxis"
+                    >
+                      Taxis
+                    </label>
+                  </div>
+                  <div style={{ paddingTop: "5px" }}>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Other"
+                      name="medium"
+                      id="otherPurposeInput2"
+                      onChange={formik.handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
 
               <div className="form-group">
                 <label
@@ -325,8 +417,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="openExplore"
-                      id="beaten_off_path"
+                      name="beaten_off_path"
+                      id="openVeryLikely"
                       value="Very Likely"
                       onChange={formik.handleChange}
                     />
@@ -338,8 +430,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="openExplore"
-                      id="beaten_off_path"
+                      name="beaten_off_path"
+                      id="openLikely"
                       value="Likely"
                       onChange={formik.handleChange}
                     />
@@ -351,8 +443,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="openExplore"
-                      id="beaten_off_path"
+                      name="beaten_off_path"
+                      id="openNeutral"
                       value="Neutral"
                       onChange={formik.handleChange}
                     />
@@ -364,8 +456,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="openExplore"
-                      id="beaten_off_path"
+                      name="beaten_off_path"
+                      id="openUnlikely"
                       value="Unlikely"
                       onChange={formik.handleChange}
                     />
@@ -377,8 +469,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="openExplore"
-                      id="beaten_off_path"
+                      name="beaten_off_path"
+                      id="openVeryUnlikely"
                       value="Very Unlikely"
                       onChange={formik.handleChange}
                     />
@@ -406,8 +498,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="participateEvents"
-                      id="festivals"
+                      name="festivals"
+                      id="participateVeryLikely"
                       value="Very Likely"
                       onChange={formik.handleChange}
                     />
@@ -422,8 +514,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="openExplore"
-                      id="festivals"
+                      name="festivals"
+                      id="participateLikely"
                       value="Likely"
                       onChange={formik.handleChange}
                     />
@@ -435,8 +527,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="participateEvents"
-                      id="festivals"
+                      name="festivals"
+                      id="participateNeutral"
                       value="Neutral"
                       onChange={formik.handleChange}
                     />
@@ -451,8 +543,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="participateEvents"
-                      id="festivals"
+                      name="festivals"
+                      id="participateUnlikely"
                       value="Unlikely"
                       onChange={formik.handleChange}
                     />
@@ -467,8 +559,8 @@ function SurveyPage() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="openExplore"
-                      id="festivals"
+                      name="festivals"
+                      id="participateVeryUnlikely"
                       value="Very Unlikely"
                       onChange={formik.handleChange}
                     />
@@ -514,7 +606,7 @@ function SurveyPage() {
                     id="requests"
                     rows="4"
                     placeholder="Enter your special requests or requirements"
-                    value = {formik.values.requests}
+                    value={formik.values.requests}
                     onChange={formik.handleChange}
                   ></textarea>
                 </div>
