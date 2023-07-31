@@ -34,6 +34,8 @@ function SurveyPage() {
     // Form validation
     validationSchema: Yup.object({
       tripDuration: Yup.number()
+        .positive("Please enter a positive number")
+        .integer("Please enter an integer")
         .max(60, "Trip Duration cannot exceed a month")
         .required("Please enter the duration of your trip"),
       hotelRecommendation: Yup.string(),
@@ -278,6 +280,18 @@ function SurveyPage() {
                       onChange={formik.handleChange}
                     />
                   </div>
+                  {formik.touched.adults && formik.errors.adults ? (
+                    <div
+                      style={{
+                        color: "red",
+                        marginTop: "70px",
+                        marginLeft: "-230px",
+                        marginRight: "10px",
+                      }}
+                    >
+                      {formik.errors.adults}
+                    </div>
+                  ) : null}
                   <div style={{ marginRight: "10px" }}>
                     <label>Children:</label>
                     <input
@@ -289,6 +303,18 @@ function SurveyPage() {
                       onChange={formik.handleChange}
                     />
                   </div>
+                  {formik.touched.children && formik.errors.children ? (
+                    <div
+                      style={{
+                        color: "red",
+                        marginTop: "70px",
+                        marginLeft: "-230px",
+                        marginRight: "10px",
+                      }}
+                    >
+                      {formik.errors.children}
+                    </div>
+                  ) : null}
                   <div>
                     <label>Infants:</label>
                     <input
@@ -300,6 +326,17 @@ function SurveyPage() {
                       onChange={formik.handleChange}
                     />
                   </div>
+                  {formik.touched.infants && formik.errors.infants ? (
+                    <div
+                      style={{
+                        color: "red",
+                        marginTop: "70px",
+                        marginLeft: "-220px",
+                      }}
+                    >
+                      {formik.errors.infants}
+                    </div>
+                  ) : null}
                 </div>
               </div>
 
