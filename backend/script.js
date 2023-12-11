@@ -1,4 +1,11 @@
-import { Configuration, OpenAIApi } from 'openai'; 
+const { Configuration, OpenAIApi } = require('openai');
+const express = require('express');
+const app = express();
+const cors = require('cors');
+
+
+app.use(cors());
+
 // config()// Configuration to setup the api
 // OpenAIAPI is the class that will be used to make requests to the API
 const API_KEY = "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";
@@ -33,12 +40,23 @@ const getRes = async (values) => {
     + `Any dietary or other restrictions or any preferences: ${values.restrictions}`
     + `Any other requests: ${values.requests}`
     + `Give me the name of the itineraries and make sure each itinerary is the form day 1, day 2...`
-    + `Do not add any messages for line before or after the itinerary. Only give me the itinerary starting for Itinerary name:`
-    await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: prompt }]
-})}
+    
+    const response = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: prompt }]
+    });
 
-export {
-    getRes,
+    return response.data.choices[0].message.content;
 }
+
+app.get('/', async (req, res) => {
+    const values = req.query; 
+    const response = await getRes(values);
+    console.log(response);
+    res.send(response);
+})
+
+
+app.listen(8000, () => {
+    console.log('listening on port 8000');
+})

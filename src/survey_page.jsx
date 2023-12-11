@@ -8,6 +8,7 @@ import { ScriptComponent } from "./script";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { getRes } from "./script";
+import axios from "axios";
 
 function SurveyPage() {
   // initialising formik
@@ -53,24 +54,21 @@ function SurveyPage() {
     // Submit form
 
     onSubmit: (values) => {
-      console.log(values);
-      counter++;
-      if (counter === 1) {
-        setShowCardArray(false);
-      } else if (counter > 1) {
-        setShowCardArray(false);
-        setResetCards(true);
-        setCardValues([""]);
-      }
-      const fetchData = async () => {
-        const res = await getRes(values);
-        var cardRes = cardValues;
-        cardRes.push(res);
-        setCardValues(cardRes);
-      };
-
-      fetchData();
-      formik.resetForm();
+      const baseURL = "http://localhost:8000";
+      const queryString = new URLSearchParams(values).toString();
+      axios.get(baseURL + "?" + queryString).then((res) => {
+        counter++;
+        if (counter === 1) {
+          setShowCardArray(false);
+        } else if (counter > 1) {
+          setShowCardArray(false);
+          setResetCards(true);
+          setCardValues([""]);
+        }
+        console.log(res.data);
+        setCardValues((state) => [...state, res.data])
+        formik.resetForm();
+      });
     },
   });
   const [inputDisabled, setInputDisabled] = useState(false);
